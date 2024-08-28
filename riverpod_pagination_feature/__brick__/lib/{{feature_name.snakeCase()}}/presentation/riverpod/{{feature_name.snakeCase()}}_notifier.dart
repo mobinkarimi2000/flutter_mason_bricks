@@ -15,7 +15,7 @@ class {{feature_name.pascalCase()}}Notifier extends StateNotifier<{{feature_name
   final List<{{paginate_name.pascalCase()}}Model> _{{paginate_name.snakeCase()}}List = [];
 
   {{feature_name.pascalCase()}}Notifier(this._get{{feature_name.pascalCase()}}ListUseCase)
-      : super({{feature_name.pascalCase()}}State({{paginate_name.pascalCase()}}ListStatus: {{paginate_name.pascalCase()}}ListInitial()));
+      : super({{feature_name.pascalCase()}}State({{paginate_name.snakeCase()}}ListStatus: {{paginate_name.pascalCase()}}ListInitial()));
 
   pageToInitial{{paginate_name.pascalCase()}}List() {
     pageNumber = 1;
