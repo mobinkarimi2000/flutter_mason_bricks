@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../domain/model/{{paginate_name.snakeCase()}}_list_params.dart';
-import '../../domain/model/{{paginate_name.snakeCase()}}_model.dart';
+import '../../domain/models/{{paginate_name.snakeCase()}}_list_params.dart';
+import '../../domain/models/{{paginate_name.snakeCase()}}_model.dart';
 import '../../domain/usecases/get_{{paginate_name.snakeCase()}}_list_use_case.dart';
 import '{{feature_name.snakeCase()}}_state.dart';
 import 'status/{{paginate_name.snakeCase()}}_list_status.dart';

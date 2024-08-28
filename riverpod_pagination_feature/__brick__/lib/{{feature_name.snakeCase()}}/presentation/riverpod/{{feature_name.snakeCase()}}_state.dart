@@ -1,3 +1,4 @@
+import 'status/{{paginate_name.snakeCase()}}_list_status.dart';
 
 class {{feature_name.pascalCase()}}State {
   final {{paginate_name.pascalCase()}}ListStatus {{paginate_name.snakeCase()}}ListStatus;
