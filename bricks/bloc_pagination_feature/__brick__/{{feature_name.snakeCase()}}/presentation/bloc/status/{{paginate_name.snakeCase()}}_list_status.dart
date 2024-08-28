@@ -1,5 +1,4 @@
-import '../../../../../core/error_handling/failure.dart';
-import '../../../domain/models/sample_model.dart';
+import '../../../domain/models/{{paginate_name.snakeCase()}}_model.dart';
 
 abstract class {{paginate_name.pascalCase()}}ListStatus {}
 

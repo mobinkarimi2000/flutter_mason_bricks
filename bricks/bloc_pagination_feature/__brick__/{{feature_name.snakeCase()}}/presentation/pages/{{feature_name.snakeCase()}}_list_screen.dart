@@ -8,7 +8,6 @@ class {{paginate_name.pascalCase()}}ListScreen extends StatefulWidget {
 }
 
 class _{{paginate_name.pascalCase()}}ListScreenState extends State<{{paginate_name.pascalCase()}}ListScreen> {
-  final PageController pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return const Scaffold();

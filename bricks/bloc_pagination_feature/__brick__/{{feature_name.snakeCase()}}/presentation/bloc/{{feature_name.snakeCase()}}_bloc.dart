@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import '../../../../core/error_handling/failure.dart';
-import '../../domain/get_{{paginate_name.pascalCase()}}_list_use_case.dart';
-import '../../domain/models/{{paginate_name.pascalCase()}}_model.dart';
-import '../../domain/models/{{paginate_name.pascalCase()}}_list_params.dart';
-import 'status/{{paginate_name.pascalCase()}}_list_status.dart';
 
-part '{{feature_name.pascalCase()}}_state.dart';
-part '{{feature_name.pascalCase()}}_event.dart';
+import '../../domain/usecases/get_{{paginate_name.snakeCase()}}_list_use_case.dart';
+import '../../domain/models/{{paginate_name.snakeCase()}}_model.dart';
+import '../../domain/models/{{paginate_name.snakeCase()}}_list_params.dart';
+import 'status/{{paginate_name.snakeCase()}}_list_status.dart';
+
+part '{{feature_name.snakeCase()}}_state.dart';
+part '{{feature_name.snakeCase()}}_event.dart';
 
 class {{feature_name.pascalCase()}}Bloc extends Bloc<{{feature_name.pascalCase()}}Event, {{feature_name.pascalCase()}}State> {
   int pageNumber = 0;
@@ -15,14 +15,14 @@ class {{feature_name.pascalCase()}}Bloc extends Bloc<{{feature_name.pascalCase()
   int pageSize = 30;
   CancelToken cancelToken = CancelToken();
 
-  final List<{{paginate_name.pascalCase()}}Model> _sampleList = [];
+  final List<{{paginate_name.pascalCase()}}Model> _{{paginate_name.snakeCase()}}List = [];
   final Get{{paginate_name.pascalCase()}}ListUseCase _get{{paginate_name.pascalCase()}}ListUseCase;
   {{feature_name.pascalCase()}}Bloc(
     this._get{{paginate_name.pascalCase()}}ListUseCase,
-  ) : super({{feature_name.pascalCase()}}State(sampleListStatus: {{paginate_name.pascalCase()}}ListInitial())) {
+  ) : super({{feature_name.pascalCase()}}State({{paginate_name.snakeCase()}}ListStatus: {{paginate_name.pascalCase()}}ListInitial())) {
     on<PageToInitial{{paginate_name.pascalCase()}}ListEvent>((event, emit) {
       pageNumber = 0;
-      _sampleList.clear();
+      _{{paginate_name.snakeCase()}}List.clear();
     });
     on<Get{{paginate_name.pascalCase()}}ListEvent>((event, emit) async {
       if (pageNumber > 0) {
@@ -56,12 +56,12 @@ class {{feature_name.pascalCase()}}Bloc extends Bloc<{{feature_name.pascalCase()
     if (success.isNotEmpty) {
       pageNumber++;
     }
-    _sampleList.addAll(success);
-    if (_sampleList.isEmpty) {
+    _{{paginate_name.snakeCase()}}List.addAll(success);
+    if (_{{paginate_name.snakeCase()}}List.isEmpty) {
       emit(state.copyWith(new{{paginate_name.pascalCase()}}ListStatus: {{paginate_name.pascalCase()}}ListEmpty()));
     } else {
       emit(state.copyWith(
-        new{{paginate_name.pascalCase()}}ListStatus: {{paginate_name.pascalCase()}}ListCompleted(list: _sampleList),
+        new{{paginate_name.pascalCase()}}ListStatus: {{paginate_name.pascalCase()}}ListCompleted(list: _{{paginate_name.snakeCase()}}List),
       ));
     }
   }
