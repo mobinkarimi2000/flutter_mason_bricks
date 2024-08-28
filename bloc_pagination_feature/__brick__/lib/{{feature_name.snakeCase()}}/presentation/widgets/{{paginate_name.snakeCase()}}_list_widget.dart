@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/utils/custom_colors.dart';
-import '../../../../core/widget/error_handling/error_handling_widget.dart';
-import '../../domain/models/{{paginate_name.snackCase()}}_model.dart';
+import '../../domain/models/{{paginate_name.snakeCase()}}_model.dart';
 import '../bloc/{{feature_name.pascalCase()}}_bloc.dart';
-import '../bloc/status/{{paginate_name.snackCase()}}_list_status.dart';
-import 'empty_data_{{paginate_name.snackCase()}}_list_widget.dart';
-import 'loading_{{paginate_name.snackCase()}}_card.dart';
-import '{{paginate_name.snackCase()}}_card.dart';
+import '../bloc/status/{{paginate_name.snakeCase()}}_list_status.dart';
+import 'empty_data_{{paginate_name.snakeCase()}}_list_widget.dart';
+import 'loading_{{paginate_name.snakeCase()}}_card.dart';
+import '{{paginate_name.snakeCase()}}_card.dart';
 import 'package:scroll_edge_listener/scroll_edge_listener.dart';
 
 class {{paginate_name.pascalCase()}}ListWidget extends StatefulWidget {
@@ -22,7 +20,7 @@ class {{paginate_name.pascalCase()}}ListWidget extends StatefulWidget {
 }
 
 class _{{paginate_name.pascalCase()}}ListWidgetState extends State<{{paginate_name.pascalCase()}}ListWidget> {
-  late {{feature_name.pascalCase()}}Bloc {{paginate_name.snackCase()}}Bloc;
+  late {{feature_name.pascalCase()}}Bloc {{paginate_name.snakeCase()}}Bloc;
 
   List<{{paginate_name.pascalCase()}}Model> list = [];
   @override
@@ -32,7 +30,7 @@ class _{{paginate_name.pascalCase()}}ListWidgetState extends State<{{paginate_na
   }
 
   void onWidgetCreated(BuildContext context) {
-    {{paginate_name.snackCase()}}Bloc = BlocProvider.of<{{feature_name.pascalCase()}}Bloc>(context);
+    {{paginate_name.snakeCase()}}Bloc = BlocProvider.of<{{feature_name.pascalCase()}}Bloc>(context);
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
       refreshScreen();
@@ -45,11 +43,11 @@ class _{{paginate_name.pascalCase()}}ListWidgetState extends State<{{paginate_na
   }
 
   void callLoadEvent() {
-    {{paginate_name.snackCase()}}Bloc.add(Get{{paginate_name.pascalCase()}}ListEvent());
+    {{paginate_name.snakeCase()}}Bloc.add(Get{{paginate_name.pascalCase()}}ListEvent());
   }
 
   void callInitialEvent() {
-    {{paginate_name.snackCase()}}Bloc.add(PageToInitial{{paginate_name.pascalCase()}}ListEvent());
+    {{paginate_name.snakeCase()}}Bloc.add(PageToInitial{{paginate_name.pascalCase()}}ListEvent());
   }
 
   @override
@@ -68,27 +66,27 @@ class _{{paginate_name.pascalCase()}}ListWidgetState extends State<{{paginate_na
       child: BlocBuilder<{{feature_name.pascalCase()}}Bloc, {{feature_name.pascalCase()}}State>(
         builder: (context, state) {
           bool isLoadingMore = false;
-          if (state.{{paginate_name.snackCase()}}ListStatus is {{paginate_name.pascalCase()}}ListLoading) {
+          if (state.{{paginate_name.snakeCase()}}ListStatus is {{paginate_name.pascalCase()}}ListLoading) {
             widget = _createLoadingWidget();
-          } else if (state.{{paginate_name.snackCase()}}ListStatus is {{paginate_name.pascalCase()}}ListEmpty) {
+          } else if (state.{{paginate_name.snakeCase()}}ListStatus is {{paginate_name.pascalCase()}}ListEmpty) {
             widget = EmptyData{{paginate_name.pascalCase()}}ListWidget(
               onClickListener: () {
                 refreshScreen();
               },
             );
-          } else if (state.{{paginate_name.snackCase()}}ListStatus is {{paginate_name.pascalCase()}}ListCompleted) {
+          } else if (state.{{paginate_name.snakeCase()}}ListStatus is {{paginate_name.pascalCase()}}ListCompleted) {
             final {{paginate_name.pascalCase()}}ListCompleted completed =
-                state.{{paginate_name.snackCase()}}ListStatus as {{paginate_name.pascalCase()}}ListCompleted;
+                state.{{paginate_name.snakeCase()}}ListStatus as {{paginate_name.pascalCase()}}ListCompleted;
             list = completed.list;
             widget = _createLoadedWidget(list, false);
-          } else if (state.{{paginate_name.snackCase()}}ListStatus is {{paginate_name.pascalCase()}}ListLoadingMore) {
+          } else if (state.{{paginate_name.snakeCase()}}ListStatus is {{paginate_name.pascalCase()}}ListLoadingMore) {
             widget = _createLoadedWidget(list, false);
             isLoadingMore = true;
-          } else if (state.{{paginate_name.snackCase()}}ListStatus is {{paginate_name.pascalCase()}}ListLoadedMoreError) {
+          } else if (state.{{paginate_name.snakeCase()}}ListStatus is {{paginate_name.pascalCase()}}ListLoadedMoreError) {
             widget = _createLoadedWidget(list, false);
-          } else if (state.{{paginate_name.snackCase()}}ListStatus is {{paginate_name.pascalCase()}}ListError) {
+          } else if (state.{{paginate_name.snakeCase()}}ListStatus is {{paginate_name.pascalCase()}}ListError) {
             {{paginate_name.pascalCase()}}ListError followingListError =
-                state.{{paginate_name.snackCase()}}ListStatus as {{paginate_name.pascalCase()}}ListError;
+                state.{{paginate_name.snakeCase()}}ListStatus as {{paginate_name.pascalCase()}}ListError;
             widget = _createErrorWidget(followingListError);
           }
           // widget = _createLoadingWidget();
@@ -160,7 +158,7 @@ class _{{paginate_name.pascalCase()}}ListWidgetState extends State<{{paginate_na
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: {{paginate_name.pascalCase()}}Card(
-                    {{paginate_name.snackCase()}}Model: list[index],
+                    {{paginate_name.snakeCase()}}Model: list[index],
                   ),
                 ),
               ),
