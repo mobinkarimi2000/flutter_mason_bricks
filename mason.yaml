@@ -7,3 +7,5 @@ bricks:
     path: bloc_pagination_feature
   ui_list_pagination_bloc:
     path: ui_list_pagination_bloc
+  app_core:
+    path: app_core
