@@ -26,8 +26,14 @@ environment:
 #  * a list of values (enums only)
 #  * an optional separator (list only)
 vars:
-  name:
+  feature_name:
     type: string
-    description: Your name
-    default: Dash
+    description: Your feature name
+    default: Product
     prompt: What is your name?
+
+  paginate_name:
+    type: string
+    description: Your paginate model
+    default: Product
+    prompt: What is your paginate model name?

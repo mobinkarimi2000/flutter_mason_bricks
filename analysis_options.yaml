@@ -16,6 +16,7 @@ analyzer:
     - ui_list_pagination_bloc/**
     - ui_list_pagination_riverpod/**
     - app_core/**
+    - riverpod_pagination_feature/**
 
 linter:
   # The lint rules applied to this project can be customized in the
