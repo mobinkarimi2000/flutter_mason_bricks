@@ -87,7 +87,7 @@ class SafeConvertor {
 //     );
 //     return multipartFile;
 //   }
-// }
+}
 
 class ThousandsSeparatorInputFormatter extends TextInputFormatter {
   static const separator = ','; // Change this to '.' for other locales

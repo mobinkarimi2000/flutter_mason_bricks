@@ -6,7 +6,7 @@ import '../error_handling/custom_exception.dart';
 import '../error_handling/failure.dart';
 import 'constants.dart';
 import 'custom_colors.dart';
-import '../widget/custom_elevated_button.dart';
+import '../widgets/custom_elevated_button.dart';
 import '../../main.dart';
 import 'package:geolocator/geolocator.dart' as geo;
 import 'package:go_router/go_router.dart';
