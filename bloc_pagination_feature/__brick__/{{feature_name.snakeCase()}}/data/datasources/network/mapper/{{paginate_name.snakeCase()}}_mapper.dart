@@ -1,6 +1,5 @@
-import '../../../../../../core/mapper/mapper.dart';
-import '../dto/{{paginate_name.snackCase()}}_dto.dart';
-import '../../../../domain/models/{{paginate_name.snackCase()}}_model.dart';
+import '../dto/{{paginate_name.snakeCase()}}_dto.dart';
+import '../../../../domain/models/{{paginate_name.snakeCase()}}_model.dart';
 
 class {{paginate_name.pascalCase()}}Mapper extends EntityMapper<{{paginate_name.pascalCase()}}Dto, {{paginate_name.pascalCase()}}Model> {
   @override

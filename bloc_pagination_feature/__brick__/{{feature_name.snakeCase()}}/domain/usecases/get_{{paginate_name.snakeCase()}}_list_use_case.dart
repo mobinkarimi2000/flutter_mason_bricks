@@ -1,10 +1,7 @@
 import 'package:dartz/dartz.dart';
-
-import '../../../core/error_handling/failure.dart';
-import '../../../core/usecase/use_case.dart';
-import 'models/sample_list_params.dart';
-import 'models/sample_model.dart';
-import 'repositories/{{feature_name.pascalCase()}}_repository.dart';
+import '../models/{{paginate_name.snakeCase()}}_model.dart';
+import '../models/{{paginate_name.snakeCase()}}_list_params.dart';
+import '../repositories/{{feature_name.pascalCase()}}_repository.dart';
 
 class Get{{paginate_name.pascalCase()}}ListUseCase
     extends UseCase<Either<Failure, List<{{paginate_name.pascalCase()}}Model>>, {{paginate_name.pascalCase()}}ListParams> {

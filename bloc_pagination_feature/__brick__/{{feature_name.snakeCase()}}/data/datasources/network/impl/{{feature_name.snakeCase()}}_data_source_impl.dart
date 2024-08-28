@@ -1,4 +1,4 @@
-import '../abstraction/{{feature_name.snackCase()}}_data_source.dart';
+import '../abstraction/{{feature_name.snakeCase()}}_data_source.dart';
 import '../dto/{{paginate_name.snakeCase()}}_dto.dart';
 import '../../../../domain/models/{{paginate_name.snakeCase()}}_list_params.dart';
 
